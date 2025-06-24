@@ -1,0 +1,72 @@
+services:
+  service_1:
+    build: ./service_1
+    container_name: service_1
+    ports:
+      - "8001:8001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  service_2:
+    build: ./service_2
+    container_name: service_2
+    ports:
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      service_1:
+        condition: service_healthy
+      service_2:
+        condition: service_healthy
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
