@@ -1,4 +1,4 @@
-# DevOps Assignment Project
+# Containerized microservice using nginx reverseproxy.
 
 This project demonstrates a microservices-based architecture using Docker, Docker Compose, Nginx as a reverse proxy, and two lightweight services written in Go and Python (Flask). It's designed to reflect real-world DevOps practices such as service containerization, health checks, logging, and reverse proxy routing.
 
